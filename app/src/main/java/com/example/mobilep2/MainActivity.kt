@@ -1,5 +1,6 @@
 package com.example.mobilep2
 
+import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var free1button: Button
     private lateinit var free2button: Button
     private lateinit var resetbutton: Button
+    private lateinit var savebutton: Button
 
     private lateinit var viewModel: ScoreView
 
@@ -76,6 +78,14 @@ class MainActivity : AppCompatActivity() {
 
         resetbutton.setOnClickListener { v ->
             resetButtonHandler()
+        }
+
+        //Creating the second activity save button
+        savebutton = findViewById<Button>(R.id.save_button)
+
+        savebutton.setOnClickListener {
+            val intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
         }
 
 
@@ -199,4 +209,6 @@ class MainActivity : AppCompatActivity() {
             item.visibility = View.VISIBLE
         }
     }
+
+
 }
