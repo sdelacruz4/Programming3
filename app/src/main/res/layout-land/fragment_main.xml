@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteX="-1dp"
+    tools:layout_editor_absoluteY="36dp">
 
 
     <TextView
@@ -26,7 +28,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.058"
+        app:layout_constraintVertical_bias="0.117"
         tools:text="Reset to play again!" />
 
     <EditText
@@ -34,39 +36,39 @@
         android:layout_height="wrap_content"
         android:text="@string/TeamA"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.187"
+        app:layout_constraintHorizontal_bias="0.178"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.179"
+        app:layout_constraintVertical_bias="0.09"
         tools:text="Team A" />
 
     <TextView
         android:id="@+id/teamAWin"
-        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Team A wins!"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.107"
+        app:layout_constraintVertical_bias="0.321"
         tools:text="Team A wins!" />
 
     <TextView
         android:id="@+id/teamBWin"
-        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Team B wins!"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.107"
+        app:layout_constraintVertical_bias="0.323"
         tools:text="Team B wins!" />
 
     <EditText
@@ -74,11 +76,11 @@
         android:layout_height="wrap_content"
         android:text="@string/TeamB"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.724"
+        app:layout_constraintHorizontal_bias="0.799"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.175"
+        app:layout_constraintVertical_bias="0.09"
         tools:text="Team B" />
 
     <TextView
@@ -89,11 +91,11 @@
         android:text="0"
         android:textSize="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.258"
+        app:layout_constraintHorizontal_bias="0.125"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.262" />
+        app:layout_constraintVertical_bias="0.263" />
 
     <TextView
         android:id="@+id/scoreB"
@@ -103,23 +105,23 @@
         android:text="0"
         android:textSize="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.833"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.261" />
+        app:layout_constraintVertical_bias="0.273" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.724"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.175"
-        android:orientation="horizontal" />
+        app:layout_constraintVertical_bias="0.175" />
 
     <Button
         android:id="@+id/three1_button"
@@ -128,24 +130,11 @@
         android:orientation="horizontal"
         android:text="@string/three1_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.158"
+        app:layout_constraintHorizontal_bias="0.154"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.418" />
-
-    <Button
-        android:id="@+id/two1_button"
-        android:layout_width="115dp"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:text="@string/two1_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.158"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.538" />
+        app:layout_constraintVertical_bias="0.578" />
 
     <Button
         android:id="@+id/free1_button"
@@ -154,24 +143,24 @@
         android:orientation="horizontal"
         android:text="@string/free1_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.158"
+        app:layout_constraintHorizontal_bias="0.154"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.665" />
+        app:layout_constraintVertical_bias="0.828" />
 
     <Button
-        android:id="@+id/three2_button"
+        android:id="@+id/two1_button"
         android:layout_width="115dp"
         android:layout_height="50dp"
         android:orientation="horizontal"
-        android:text="@string/three2_button"
+        android:text="@string/two1_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
+        app:layout_constraintHorizontal_bias="0.154"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.418" />
+        app:layout_constraintVertical_bias="0.7" />
 
     <Button
         android:id="@+id/two2_button"
@@ -180,11 +169,24 @@
         android:orientation="horizontal"
         android:text="@string/two2_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
+        app:layout_constraintHorizontal_bias="0.818"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.537" />
+        app:layout_constraintVertical_bias="0.689" />
+
+    <Button
+        android:id="@+id/three2_button"
+        android:layout_width="115dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:text="@string/three2_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.818"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.57" />
 
     <Button
         android:id="@+id/free2_button"
@@ -193,32 +195,17 @@
         android:orientation="horizontal"
         android:text="@string/free2_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
+        app:layout_constraintHorizontal_bias="0.818"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.665" />
-
-    <Button
-        android:id="@+id/reset_button"
-        android:layout_width="92dp"
-        android:layout_height="41dp"
-        android:layout_marginEnd="284dp"
-        android:orientation="horizontal"
-        android:text="@string/reset_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.724"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.772" />
+        app:layout_constraintVertical_bias="0.817" />
 
     <Button
         android:id="@+id/save_button"
         android:layout_width="106dp"
         android:layout_height="41dp"
-        android:layout_marginEnd="160dp"
+        android:layout_marginEnd="324dp"
         android:orientation="horizontal"
         android:text="@string/save_button"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -227,13 +214,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.772" />
+        app:layout_constraintVertical_bias="0.943" />
 
     <Button
         android:id="@+id/display_button"
         android:layout_width="106dp"
         android:layout_height="41dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="204dp"
         android:orientation="horizontal"
         android:text="@string/display_button"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -242,6 +229,21 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.772" />
+        app:layout_constraintVertical_bias="0.943" />
+
+    <Button
+        android:id="@+id/reset_button"
+        android:layout_width="92dp"
+        android:layout_height="41dp"
+        android:layout_marginEnd="448dp"
+        android:orientation="horizontal"
+        android:text="@string/reset_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.724"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.943" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
