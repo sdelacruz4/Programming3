@@ -1,5 +1,6 @@
 package com.example.mobilep2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -21,7 +22,8 @@ class SecondActivity : AppCompatActivity() {
 
         ggbutton = findViewById<Button>(R.id.gg_button)
         ggbutton.setOnClickListener { v ->
-            appear(imageview)
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
 
         imageview = findViewById<ImageView>(R.id.imageView)
@@ -34,6 +36,8 @@ class SecondActivity : AppCompatActivity() {
 
 
     }
+
+
 
     fun appear(view: android.view.View) {
         imageview.setImageResource(R.drawable.goodgame)
