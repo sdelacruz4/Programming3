@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         if(savedInstanceState == null){
-            val firstFragment = MainFragment()
+            val firstFragment = GameListFragment.newInstance()//MainFragment()
 
             val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
             ft.add(R.id.fragment_main_container, firstFragment)
