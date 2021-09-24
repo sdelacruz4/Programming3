@@ -1,82 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:layout_marginTop="10dp"
-    android:padding="8dp">
+    android:layout_marginTop="10dp">
+
+    <ImageView
+        android:id="@+id/winningLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher" />
 
     <TextView
         android:id="@+id/game_title"
-        android:layout_width="81dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:text="Game Title"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/game_date"
-        android:layout_width="196dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:text="Game Date"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="27dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:padding="0dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/game_title"
+        tools:ignore="MissingConstraints" />
 
 
-        <TextView
-            android:id="@+id/team1"
-            android:layout_width="123dp"
-            android:layout_height="wrap_content"
-            android:text="Team:"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="128dp"
-            tools:layout_editor_absoluteY="61dp" />
+    <TextView
+        android:id="@+id/team1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="11dp"
+        android:text="Team:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/game_date"
+        tools:ignore="MissingConstraints" />
 
-        <TextView
-            android:id="@+id/team2"
-            android:layout_width="107dp"
-            android:layout_height="wrap_content"
-            android:text="Team:"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="-2dp"
-            tools:layout_editor_absoluteY="61dp" />
-
-
-        <TextView
-            android:id="@+id/team2Score"
-            android:layout_width="31dp"
-            android:layout_height="wrap_content"
-            android:text="0"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="354dp"
-            tools:layout_editor_absoluteY="61dp" />
-
-        <TextView
-            android:id="@+id/colonSeperate"
-            android:layout_width="20dp"
-            android:layout_height="wrap_content"
-            android:text=":"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="345dp"
-            tools:layout_editor_absoluteY="61dp" />
-
-        <TextView
-            android:id="@+id/team1Score"
-            android:layout_width="375dp"
-            android:layout_height="wrap_content"
-            android:text="0"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="329dp"
-            tools:layout_editor_absoluteY="61dp" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/team2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="66dp"
+        android:text="Team:"
+        app:layout_constraintStart_toEndOf="@+id/team1"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/team2Score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:text="0"
+        app:layout_constraintEnd_toStartOf="@+id/colonSeperate"
+        app:layout_constraintTop_toBottomOf="@+id/winningLogo" />
+
+    <TextView
+        android:id="@+id/colonSeperate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="1dp"
+        android:text=":"
+        app:layout_constraintEnd_toStartOf="@+id/team1Score"
+        app:layout_constraintTop_toBottomOf="@+id/winningLogo" />
+
+    <TextView
+        android:id="@+id/team1Score"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="26dp"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/winningLogo" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

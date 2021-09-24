@@ -1,5 +1,8 @@
 package com.example.mobilep2
 
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -48,9 +52,9 @@ class GameListFragment : Fragment() {
         return view
     }
 
-    private inner class GameHolder(view:View): RecyclerView.ViewHolder(view), View.OnClickListener{
+    private inner class GameHolder(view:View): RecyclerView.ViewHolder(view), View.OnClickListener {
 
-        private lateinit var  game: ScoreView
+        private lateinit var game: ScoreView
 
         val gameTitleTextView: TextView = itemView.findViewById(R.id.game_title)
         val gameDateTextView: TextView = itemView.findViewById(R.id.game_date)
@@ -59,25 +63,33 @@ class GameListFragment : Fragment() {
         val teamAScoreTextView: TextView = itemView.findViewById(R.id.team1Score)
         val teamBScoreTextView: TextView = itemView.findViewById(R.id.team2Score)
 
-        init{
+        private val teamLogo: ImageView = itemView.findViewById(R.id.winningLogo)
+
+        init {
             itemView.setOnClickListener(this)
         }
 
-        override fun onClick(v:View){
+        override fun onClick(v: View) {
             //placeholder interaction
             Toast.makeText(context, "${game.getGameTitle()} pressed!", Toast.LENGTH_SHORT).show()
         }
-    fun bind(game:ScoreView){
-        this.game = game
-        gameTitleTextView.text = this.game.getGameTitle()
-        gameDateTextView.text = this.game.getGameDate()
-        teamANameTextView.text = this.game.getTeamAName()
-        teamAScoreTextView.text = this.game.getTeamAScore().toString()
-        teamBNameTextView.text = this.game.getTeamBName()
-        teamBScoreTextView.text = this.game.getTeamBScore().toString()
 
+        fun bind(game: ScoreView) {
+            this.game = game
+            gameTitleTextView.text = this.game.getGameTitle()
+            gameDateTextView.text = this.game.getGameDate()
+            teamANameTextView.text = this.game.getTeamAName()
+            teamAScoreTextView.text = this.game.getTeamAScore().toString()
+            teamBNameTextView.text = this.game.getTeamBName()
+            teamBScoreTextView.text = this.game.getTeamBScore().toString()
 
-    }
+            if (game.getTeamAScore() >= game.getTeamBScore()) {
+                //Checking to see if the team A score is greater than team B score to change image
+                teamLogo.setImageResource(R.drawable.ic_launcher)
+            } else if (game.getTeamBScore() >= game.getTeamAScore()) {
+                teamLogo.setImageResource(R.drawable.lancher2)
+            }
+        }
     }
 
     private inner class GameAdapter(var games: List<ScoreView>) : RecyclerView.Adapter<GameHolder>(){
@@ -108,3 +120,4 @@ class GameListFragment : Fragment() {
         }
     }
 }
+
