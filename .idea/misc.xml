@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Github Repos/wpi-cs-repositories/MobileP2/app/src/main/res/drawable/ic_launcher.xml" value="1.353125" />
+        <entry key="..\:/Github Repos/wpi-cs-repositories/MobileP2/app/src/main/res/drawable/lancher2.xml" value="1.353125" />
         <entry key="app/src/main/res/layout/activity_2.xml" value="0.11764705882352941" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_second.xml" value="0.1" />
