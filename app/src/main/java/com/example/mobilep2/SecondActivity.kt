@@ -3,6 +3,7 @@ package com.example.mobilep2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
@@ -24,6 +25,7 @@ class SecondActivity : AppCompatActivity() {
         ggbutton.setOnClickListener { v ->
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            Log.e("Main Activity", "Going back to main activity")
         }
 
         imageview = findViewById<ImageView>(R.id.imageView)

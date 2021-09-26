@@ -88,6 +88,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        Log.e("SecondActivity", "Moving to Second Activity")
 
     }
 
