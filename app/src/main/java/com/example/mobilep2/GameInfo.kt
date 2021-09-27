@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
+
 class GameInfo: ViewModel() {
    /* val games = mutableListOf<ScoreView>()*/
 
@@ -51,7 +52,7 @@ class GameInfo: ViewModel() {
         gameIdLiveData.value = gameId
     }
 
-    fun saveGame(gameId: UUID){
-        gameIdLiveData.updateGame(game)
+    fun saveGame(game: Game){
+        gameRepository.updateGame(game)
     }
 }

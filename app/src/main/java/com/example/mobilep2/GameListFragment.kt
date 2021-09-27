@@ -44,13 +44,13 @@ class GameListFragment : Fragment() {
     private lateinit var game: Game
     private lateinit var titleField: EditText
     private lateinit var dateButton: Button
-    private lateinit var solvedCheckBox: Checkbox
+    private lateinit var solvedCheckBox: CheckBox
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         game = Game()
         val gameId: UUID = arguments?.getSerializable(ARG_GAME_ID) as UUID
-        gameInfoViewModel.loadCrime(gameId)
+        gameInfoViewModel.loadGame(gameId)
     }
 
 
@@ -150,11 +150,10 @@ class GameListFragment : Fragment() {
         adapter = GameAdapter(games)
         gameRecyclerView.adapter = adapter
 
-        titleField.setText(game.title)
+        titleField.setText(game.gameTitle)
         dateButton.text = game.date.toString()
-        solvedCheckBox. aooky{
-            isChecked = game.isSolved
-            jumpDrawablesToCurrentState()
+        solvedCheckBox. apply{
+
         }
     }
 
@@ -173,10 +172,11 @@ class GameListFragment : Fragment() {
     }
 
     companion object{
-        fun newInstance(): GameListFragment{
+        fun newInstance(gameId: UUID): GameListFragment{
             val args = Bundle().apply{
                 putSerializable(ARG_GAME_ID, gameId)
             }
+            return GameListFragment().apply { arguments = args }
         }
     }
 }
