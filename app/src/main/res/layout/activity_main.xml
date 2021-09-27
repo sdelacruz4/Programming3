@@ -11,4 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"></FrameLayout>
 
+    <FrameLayout
+        android:id="@+id/fragment_list_container"
+        android:layout_width="186dp"
+        android:layout_height="225dp"
+        tools:layout_editor_absoluteX="225dp"
+        tools:layout_editor_absoluteY="506dp"
+        tools:ignore="MissingConstraints"></FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

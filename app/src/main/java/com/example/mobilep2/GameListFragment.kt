@@ -1,5 +1,6 @@
 package com.example.mobilep2
 
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
@@ -17,6 +18,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mobilep2.GameListFragment.Companion.newInstance
+import java.util.*
 
 private const val TAG = "GameListFragment"
 /**
@@ -25,6 +28,11 @@ private const val TAG = "GameListFragment"
  * create an instance of this fragment.
  */
 class GameListFragment : Fragment() {
+
+    interface Callbacks{
+        fun onGameSelected(gameId: UUID)
+    }
+    private var callbacks : Callbacks? = null
 
     private lateinit var gameRecyclerView: RecyclerView
     private var adapter: GameAdapter? = GameAdapter(emptyList())
@@ -79,13 +87,22 @@ class GameListFragment : Fragment() {
 
         override fun onClick(v: View) {
             //placeholder interaction
+            val fragment = MainFragment.newInstance()
+            val fm = activity?.supportFragmentManager
+            if (fm != null) {
+                fm.beginTransaction()
+                    .replace(R.id.fragment_main_container, fragment)
+                    .commit()
+            }
+
+            callbacks?.onGameSelected(game.id)
             Toast.makeText(context, "${game.gameTitle} pressed!", Toast.LENGTH_SHORT).show()
         }
 
         fun bind(game: Game) {
             this.game = game
             gameTitleTextView.text = this.game.gameTitle
-            gameDateTextView.text = this.game.date.toString()
+            gameDateTextView.text = this.game.date .toString()
             teamANameTextView.text = this.game.teamAName
             teamAScoreTextView.text = this.game.teamAScore.toString()
             teamBNameTextView.text = this.game.teamBName
@@ -119,6 +136,15 @@ class GameListFragment : Fragment() {
     private fun updateUI(games: List<Game>){
         adapter = GameAdapter(games)
         gameRecyclerView.adapter = adapter
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        callbacks = context as Callbacks?
+    }
+    override fun onDetach() {
+        super.onDetach()
+        callbacks = null
     }
 
     companion object{

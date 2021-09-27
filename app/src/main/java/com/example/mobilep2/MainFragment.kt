@@ -10,6 +10,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import java.util.*
+
+private const val ARG_GAME_ID = "game_id"
 
 
 class MainFragment : Fragment() {
@@ -23,6 +26,17 @@ class MainFragment : Fragment() {
     private lateinit var savebutton: Button
 
     private lateinit var viewModel:ScoreView
+
+    companion object {
+        fun newInstance(crimeId: UUID): MainFragment {
+            val args = Bundle().apply {
+                putSerializable(ARG_GAME_ID, crimeId)
+            }
+            return MainFragment().apply {
+                arguments = args
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -220,7 +234,6 @@ class MainFragment : Fragment() {
             item.visibility = View.VISIBLE
         }
     }
-
 
 
 }
