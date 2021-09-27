@@ -41,6 +41,6 @@ writing this, we are unsure as to why we cant open the sqlite3 files and access 
 Task 11:
 This feature is included in the previously mentioned code in Task 10, but we were unable to test because of our issues with the database.
 
-Task 12:
+Task 12: For part 6 regarding fragment navigation, we refactored the code to enable fragment navigation. With this section, we followed the video from the canvas site and created the ARG_GAME_ID constant in the repository and implemented fragment arguments such as val gameId: UUID = arguments?.getSerializable(ARG_GAME_ID) as UUID gameInfoViewModel.loadCrime(gameId). In this section we also had to implement the ViewModel and used GameInfo: ViewModel
 
-Task 13:
+Task 13: In order to implement fragment data passing, we had to create new data fields such as title, date, solvedCheckBox, etc. and use the gameDao and LiveData. In addition we implemented executors in the updateGame and addGame functions. We also had to update the updateUI code.
