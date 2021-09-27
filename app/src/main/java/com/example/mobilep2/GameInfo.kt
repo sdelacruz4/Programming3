@@ -1,5 +1,9 @@
 package com.example.mobilep2
 
+import android.security.identity.AccessControlProfileId
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import java.text.SimpleDateFormat
 import java.util.*
@@ -36,6 +40,18 @@ class GameInfo: ViewModel() {
 
     private val gameRepository = GameRepository.get()
     val gameListLiveData = gameRepository.getGames()
+    private val gameIdLiveData = MutableLiveData<UUID>()
+    var gameLiveData: LiveData<Game?> =
+        Transformations.switchMap(gameIdLiveData){
+            gameId -> gameRepository.getGame(gameId)
+        }
 
 
+    fun loadGame(gameId: UUID){
+        gameIdLiveData.value = gameId
+    }
+
+    fun saveGame(gameId: UUID){
+        gameIdLiveData.updateGame(game)
+    }
 }

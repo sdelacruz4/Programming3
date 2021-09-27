@@ -12,6 +12,7 @@ interface GameDao {
     fun getGames(): LiveData<List<Game>>
     @Query("SELECT * FROM table_game WHERE id=(:id)")
     fun getGame(id: UUID): LiveData<Game?>
+    abstract fun updateGame(game: Game)
 
 
 }

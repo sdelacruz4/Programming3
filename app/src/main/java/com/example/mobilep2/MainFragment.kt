@@ -26,11 +26,14 @@ class MainFragment : Fragment() {
     private lateinit var savebutton: Button
 
     private lateinit var viewModel:ScoreView
+    private val TAG = "MainFragment"
+
+
 
     companion object {
-        fun newInstance(crimeId: UUID): MainFragment {
+        fun newInstance(gameId: UUID): MainFragment {
             val args = Bundle().apply {
-                putSerializable(ARG_GAME_ID, crimeId)
+                putSerializable(ARG_GAME_ID, gameId)
             }
             return MainFragment().apply {
                 arguments = args
@@ -43,6 +46,9 @@ class MainFragment : Fragment() {
         viewModel = activity?.run {
             ViewModelProvider(this).get(ScoreView::class.java)
         } ?: throw Exception("Invalid Activity")
+
+        val gameID: UUID = arguments?.getSerializable(ARG_GAME_ID) as UUID
+        Log.d(TAG, "args bundle crime ID: $gameID")
     }
 
     override fun onCreateView(
@@ -111,7 +117,6 @@ class MainFragment : Fragment() {
             val intent = Intent(context, SecondActivity::class.java)
             startActivity(intent)
         }
-
 
 
     }
