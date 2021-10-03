@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class GameInfo: ViewModel() {
-    val games = mutableListOf<ScoreView>()
+   /* val games = mutableListOf<ScoreView>()*/
 
     private fun randomName(): String = List(8) {
         (('a'..'z') + ('A'..'Z') + ('0'..'9')).random()
@@ -19,7 +19,7 @@ class GameInfo: ViewModel() {
         val simpleDateFormat = SimpleDateFormat("E LLL dd KK:mm:ss z yyyy")
         return simpleDateFormat.format(calendar.time).toString()
     }
-
+/*
     init{
         for (i in 0 until 100){
 
@@ -32,6 +32,10 @@ class GameInfo: ViewModel() {
             game.updateTeamBScore(randomNumber())
             games += game
         }
-    }
+    }*/
+
+    private val gameRepository = GameRepository.get()
+    val gameListLiveData = gameRepository.getGames()
+
 
 }

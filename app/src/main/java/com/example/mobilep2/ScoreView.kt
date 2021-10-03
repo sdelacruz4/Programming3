@@ -7,13 +7,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import java.util.*
 
-class ScoreView: ViewModel() {
+
+class ScoreView(): ViewModel() {
     private var  teamAScore: Int = 0;
     private var  teamBScore: Int = 0;
     private var  teamAName: String = "Team A";
     private var  teamBName: String = "Team B";
     private var  gameTitle: String = "";
     private var  gameDate: String = "";
+
 
     fun getTeamAScore(): Int{
         return teamAScore;
@@ -23,6 +25,7 @@ class ScoreView: ViewModel() {
         teamAScore += score
     }
 
+
     fun getTeamBScore(): Int{
         return teamBScore;
     }
@@ -31,9 +34,11 @@ class ScoreView: ViewModel() {
         teamBScore += score
     }
 
+
     fun getTeamAName():String{
         return teamAName
     }
+
 
     fun getTeamBName():String{
         return teamBName
@@ -48,6 +53,7 @@ class ScoreView: ViewModel() {
 
     }
 
+
     fun getGameTitle(): String{
         return gameTitle
     }
@@ -55,6 +61,7 @@ class ScoreView: ViewModel() {
     fun updateGameTitle(title: String){
         gameTitle = title
     }
+
 
     fun getGameDate(): String{
         return gameDate
