@@ -5,39 +5,31 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 
-private const val teamAScore = "com.example.mobilep2.scoreA"
-private const val teamBScore = "com.example.mobilep2.scoreB"
+
+
+
+
 
 class SecondActivity : AppCompatActivity() {
-
-    private lateinit var ggbutton: Button
-    private lateinit var imageview: ImageView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
-        ggbutton = findViewById<Button>(R.id.gg_button)
-        ggbutton.setOnClickListener { v ->
-            appear(imageview)
+        if(savedInstanceState == null){
+            val firstFragment = SecondFragment()
+
+            val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+            ft.add(R.id.fragment_second_container, firstFragment)
+            ft.commit()
         }
 
-        imageview = findViewById<ImageView>(R.id.imageView)
-
-        //Creates the actionbar to go back to main screen
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        var team_A_Score = intent.getIntExtra(teamAScore, 0)
-        var team_B_Score = intent.getIntExtra(teamBScore, 0)
-
-
     }
 
-    fun appear(view: android.view.View) {
-        imageview.setImageResource(R.drawable.goodgame)
-    }
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
