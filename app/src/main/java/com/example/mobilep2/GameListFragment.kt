@@ -11,9 +11,8 @@ import android.view.LayoutInflater
 import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
+import androidx.core.view.ViewCompat.jumpDrawablesToCurrentState
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,6 +21,7 @@ import com.example.mobilep2.GameListFragment.Companion.newInstance
 import java.util.*
 
 private const val TAG = "GameListFragment"
+private const val ARG_GAME_ID = "game_id"
 /**
  * A simple [Fragment] subclass.
  * Use the [GameListFragment.newInstance] factory method to
@@ -39,6 +39,18 @@ class GameListFragment : Fragment() {
 
     private val gameInfoViewModel: GameInfo by lazy {
         ViewModelProvider(this).get(GameInfo::class.java)
+    }
+
+    private lateinit var game: Game
+    private lateinit var titleField: EditText
+    private lateinit var dateButton: Button
+    private lateinit var solvedCheckBox: CheckBox
+
+    override fun onCreate(savedInstanceState: Bundle?){
+        super.onCreate(savedInstanceState)
+        game = Game()
+        val gameId: UUID = arguments?.getSerializable(ARG_GAME_ID) as UUID
+        gameInfoViewModel.loadGame(gameId)
     }
 
 
@@ -63,6 +75,7 @@ class GameListFragment : Fragment() {
             Observer { games ->
                 games?.let {
                     Log.i(TAG, "Got Games ${games.size}")
+                    this.game = game
                     updateUI(games)
                 }
             })
@@ -87,7 +100,7 @@ class GameListFragment : Fragment() {
 
         override fun onClick(v: View) {
             //placeholder interaction
-            val fragment = MainFragment.newInstance()
+            val fragment = MainFragment.newInstance(game.id)
             val fm = activity?.supportFragmentManager
             if (fm != null) {
                 fm.beginTransaction()
@@ -136,6 +149,17 @@ class GameListFragment : Fragment() {
     private fun updateUI(games: List<Game>){
         adapter = GameAdapter(games)
         gameRecyclerView.adapter = adapter
+
+        titleField.setText(game.gameTitle)
+        dateButton.text = game.date.toString()
+        solvedCheckBox. apply{
+
+        }
+    }
+
+    override fun onStop(){
+        super.onStop()
+        gameInfoViewModel.saveGame(game)
     }
 
     override fun onAttach(context: Context) {
@@ -148,8 +172,11 @@ class GameListFragment : Fragment() {
     }
 
     companion object{
-        fun newInstance(): GameListFragment{
-            return GameListFragment()
+        fun newInstance(gameId: UUID): GameListFragment{
+            val args = Bundle().apply{
+                putSerializable(ARG_GAME_ID, gameId)
+            }
+            return GameListFragment().apply { arguments = args }
         }
     }
 }

@@ -20,7 +20,7 @@ private const val TAG = "MainActivity"
 class MainActivity : AppCompatActivity(), GameListFragment.Callbacks {
 
     override fun onGameSelected(gameId: UUID) {
-        Log.d(TAG, "MainActivity.onCrimeSelected: $gameId")
+        Log.d(TAG, "MainActivity.onGameSelected: $gameId")
         val fragment = MainFragment()
         supportFragmentManager
             .beginTransaction()
@@ -33,15 +33,16 @@ class MainActivity : AppCompatActivity(), GameListFragment.Callbacks {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val firstFragment = MainFragment() //MainFragment()
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_main_container)
 
-        if(savedInstanceState == null){
-            val firstFragment = GameListFragment.newInstance()//MainFragment()
+        if (currentFragment == null) {
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.fragment_main_container, firstFragment)
+                .commit()
 
-            val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
-            ft.add(R.id.fragment_main_container, firstFragment)
-            ft.commit()
         }
-
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
