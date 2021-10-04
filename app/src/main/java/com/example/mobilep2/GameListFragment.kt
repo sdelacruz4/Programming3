@@ -157,6 +157,8 @@ class GameListFragment : Fragment() {
         }
     }
 
+
+
     override fun onStop(){
         super.onStop()
         gameInfoViewModel.saveGame(game)
