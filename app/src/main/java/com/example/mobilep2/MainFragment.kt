@@ -17,9 +17,21 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.io.File
 import java.util.*
+import kotlin.math.round
+import kotlin.math.roundToInt
+
 
 private const val ARG_GAME_ID = "game_id"
 private const val REQUEST_CONTACT = 1
@@ -41,6 +53,7 @@ class MainFragment : Fragment() {
     private lateinit var bTeamButton: ImageButton
     private lateinit var photoUri: Uri
     private lateinit var photoFile: File
+    private lateinit var photoRecyclerView: RecyclerView
 
 
     private lateinit var viewModel:ScoreView
@@ -65,8 +78,16 @@ class MainFragment : Fragment() {
             ViewModelProvider(this).get(ScoreView::class.java)
         } ?: throw Exception("Invalid Activity")
 
-        val gameID: UUID = arguments?.getSerializable(ARG_GAME_ID) as UUID
-        Log.d(TAG, "args bundle crime ID: $gameID")
+        val owLiveData: LiveData<String> = OpenWeatherFetchr().fetchWeather()
+        owLiveData.observe(
+            this,
+            Observer { weatherItems ->
+                val weatherViewModel: TextView = requireView().findViewById<TextView>(R.id.Weather)
+                var numFaren: Double = (((weatherItems.toDouble() - 273.15) * 9)/5) +32
+                weatherViewModel.text = "Worcester: "+numFaren.round(2).toString() + " Farenheight"
+                Log.d(TAG, "Response received: $weatherItems")
+            })
+
     }
 
     override fun onCreateView(
@@ -74,7 +95,9 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        val view = inflater.inflate(R.layout.fragment_main, container, false)
+
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -352,4 +375,10 @@ class MainFragment : Fragment() {
     }
 
 
+}
+
+private fun Double.round(decimalPlace:Int): Double {
+    var multiplier = 1.0
+    repeat(decimalPlace) { multiplier *= 10 }
+    return round(this * multiplier) / multiplier
 }

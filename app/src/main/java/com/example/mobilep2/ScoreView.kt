@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.LiveData
 import java.util.*
 
 
@@ -75,4 +76,5 @@ class ScoreView(): ViewModel() {
         teamAScore = 0
         teamBScore = 0
     }
+
 }

@@ -5,16 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/Weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.153"
+        tools:text="Weather Data" />
 
     <ImageView
         android:id="@+id/bTeamImage"
         android:layout_width="73dp"
         android:layout_height="75dp"
-        android:layout_marginEnd="104dp"
+        android:layout_marginEnd="44dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_menu_gallery"
-        tools:layout_editor_absoluteY="58dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="34dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -44,7 +55,7 @@
         android:layout_height="wrap_content"
         android:text="@string/TeamA"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.371"
+        app:layout_constraintHorizontal_bias="0.19"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -53,10 +64,10 @@
 
     <TextView
         android:id="@+id/teamAWin"
-        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Team A wins!"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -67,10 +78,10 @@
 
     <TextView
         android:id="@+id/teamBWin"
-        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Team B wins!"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -100,11 +111,11 @@
         android:text="0"
         android:textSize="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.258"
+        app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.262" />
+        app:layout_constraintVertical_bias="0.272" />
 
     <TextView
         android:id="@+id/scoreB"
@@ -114,11 +125,11 @@
         android:text="0"
         android:textSize="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.851"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.261" />
+        app:layout_constraintVertical_bias="0.272" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -126,11 +137,11 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.88"
+        app:layout_constraintHorizontal_bias="0.771"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.181" />
+        app:layout_constraintVertical_bias="0.184" />
 
     <Button
         android:id="@+id/three1_button"
@@ -260,27 +271,27 @@
         android:layout_width="40dp"
         android:layout_height="37dp"
         app:srcCompat="@android:drawable/ic_menu_camera"
-        tools:layout_editor_absoluteX="73dp"
-        tools:layout_editor_absoluteY="133dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="128dp" />
 
     <ImageButton
         android:id="@+id/bTeamButton"
         android:layout_width="40dp"
         android:layout_height="37dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="12dp"
         app:layout_constraintEnd_toStartOf="@+id/editText"
         app:srcCompat="@android:drawable/ic_menu_camera"
-        tools:layout_editor_absoluteY="128dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="128dp" />
 
     <ImageView
         android:id="@+id/aTeamImage"
         android:layout_width="73dp"
         android:layout_height="75dp"
         app:srcCompat="@android:drawable/ic_menu_gallery"
-        tools:layout_editor_absoluteX="54dp"
-        tools:layout_editor_absoluteY="60dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="34dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
