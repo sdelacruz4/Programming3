@@ -1,4 +1,4 @@
-This programming project is branched off from programming 3. All the works for this is through /Part7 branch
+This programming project is branched off from programming 2. All the works for this is through /Part7 branch
 
 Task 1:
 The cameras icons and button are both created with ImageView and ImageButtons
